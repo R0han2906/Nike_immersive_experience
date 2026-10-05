@@ -117,7 +117,7 @@ export function Nav({ bag, visible }: Props) {
             </li>
           ))}
         </ul>
-        <p className="hud mt-10 text-bone/50">The shoe in motion · SS26 concept</p>
+        <p className="hud mt-10 text-bone/70">The shoe in motion · SS26 concept</p>
       </div>
     </>
   );

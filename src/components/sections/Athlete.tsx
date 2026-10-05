@@ -103,14 +103,15 @@ export function Athlete() {
             src={f.asset.src}
             alt={f.asset.alt}
             loading={i === 0 ? 'eager' : 'lazy'}
-            decoding="async"
+            decoding={i === 0 ? 'sync' : 'async'}
+            fetchpriority={i === 0 ? 'high' : 'auto'}
             className="ath-img h-full w-full object-cover grayscale will-change-transform"
           />
           <div className="absolute inset-0 bg-ink/30" />
           <figcaption className="hud absolute right-6 top-24 text-right text-bone/70 md:right-10">
             {f.meta}
             <br />
-            <span className="text-bone/40">Photo — {f.asset.credit}</span>
+            <span className="text-bone/60">Photo — {f.asset.credit}</span>
           </figcaption>
         </figure>
       ))}

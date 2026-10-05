@@ -93,7 +93,7 @@ export function Anatomy() {
           <br />
           strata.
         </h2>
-        <p className="mt-6 max-w-[30ch] text-sm leading-relaxed text-ink/70">
+        <p className="mt-6 max-w-[30ch] text-sm leading-loose text-ink/80">
           Four systems, one motion. Scroll to separate the layers and read the shoe like a
           section drawing.
         </p>
@@ -118,13 +118,13 @@ export function Anatomy() {
             <span className="leader" />
             <div className="tag">
               <p className="label">{l.title}</p>
-              <p className="hud mt-1 hidden text-ink/55 sm:block">{l.sub}</p>
+              <p className="hud mt-1 hidden text-ink/60 sm:block">{l.sub}</p>
             </div>
           </div>
         ))}
       </div>
 
-      <div className="anatomy-specs absolute inset-x-6 bottom-8 grid grid-cols-2 gap-6 border-t border-ink/15 pt-5 opacity-0 md:inset-x-10 md:grid-cols-4">
+      <div className="anatomy-specs absolute inset-x-6 bottom-8 grid grid-cols-2 gap-6 border-t border-ink/20 pt-5 opacity-0 md:inset-x-10 md:grid-cols-4">
         {[
           ['Layers', '04'],
           ['Cut', 'Horizontal / Y axis'],
@@ -132,8 +132,8 @@ export function Anatomy() {
           ['Colourway', 'Midnight'],
         ].map(([k, v]) => (
           <div key={k}>
-            <p className="hud text-ink/50">{k}</p>
-            <p className="mt-1 text-sm font-medium">{v}</p>
+            <p className="hud text-ink/60">{k}</p>
+            <p className="mt-2 text-sm font-semibold tracking-wide text-ink">{v}</p>
           </div>
         ))}
       </div>

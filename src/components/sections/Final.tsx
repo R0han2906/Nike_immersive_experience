@@ -83,7 +83,7 @@ export function Final() {
           <br />
           you move<span className="text-ember">?</span>
         </h2>
-        <p className="final-sub hud mt-8 text-bone/60">Motion 01 · Available now · Concept</p>
+        <p className="final-sub hud mt-8 text-bone/75">Motion 01 · Available now · Concept</p>
         <div className="final-cta mt-10">
           <MagneticButton onClick={() => scrollToTarget('#product')} data-cursor="hover">
             Shop the collection <span aria-hidden="true">→</span>
@@ -109,7 +109,7 @@ export function Final() {
         <div className="grid grid-cols-12 gap-8 px-6 py-16 md:px-10 md:py-24">
           <div className="col-span-12 md:col-span-4">
             <p className="display text-4xl">NIKE</p>
-            <p className="hud mt-4 max-w-[40ch] text-bone/50">
+            <p className="hud mt-4 max-w-[40ch] text-bone/70">
               The shoe in motion — an independent concept experience inspired by Nike. Not
               affiliated with, endorsed by or produced for Nike, Inc. Product name, price and
               specifications are fictional.
@@ -117,7 +117,7 @@ export function Final() {
           </div>
 
           <div className="col-span-6 md:col-span-2">
-            <p className="hud mb-4 text-bone/50">Chapters</p>
+            <p className="hud mb-4 text-bone/70">Chapters</p>
             <ul className="hud space-y-2">
               {['hero', 'motion', 'anatomy', 'material', 'speed', 'athlete', 'product'].map((id, i) => (
                 <li key={id}>
@@ -130,7 +130,7 @@ export function Final() {
           </div>
 
           <div className="col-span-6 md:col-span-3">
-            <p className="hud mb-4 text-bone/50">3D model</p>
+            <p className="hud mb-4 text-bone/70">3D model</p>
             <p className="hud leading-relaxed">
               {MODEL_CREDIT.name}
               <br />© {MODEL_CREDIT.author} — {MODEL_CREDIT.license}
@@ -139,11 +139,11 @@ export function Final() {
                 Khronos glTF sample assets
               </a>
             </p>
-            <p className="hud mt-6 text-bone/50">Frame sequence rendered on-device from the model.</p>
+            <p className="hud mt-6 text-bone/65">Frame sequence rendered on-device from the model.</p>
           </div>
 
           <div className="col-span-12 md:col-span-3">
-            <p className="hud mb-4 text-bone/50">Photography — Pexels</p>
+            <p className="hud mb-4 text-bone/70">Photography — Pexels</p>
             <ul className="hud space-y-1 leading-relaxed">
               {credits.map((c) => (
                 <li key={c}>{c}</li>
@@ -152,7 +152,7 @@ export function Final() {
           </div>
         </div>
 
-        <div className="hud flex flex-wrap items-center justify-between gap-4 border-t border-bone/10 px-6 py-6 text-bone/40 md:px-10">
+        <div className="hud flex flex-wrap items-center justify-between gap-4 border-t border-bone/10 px-6 py-6 text-bone/60 md:px-10">
           <span>© 2026 — Concept study</span>
           <span>React · Three.js · GSAP ScrollTrigger · Lenis</span>
         </div>

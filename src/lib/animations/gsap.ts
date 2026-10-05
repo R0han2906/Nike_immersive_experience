@@ -8,7 +8,7 @@ ScrollTrigger.config({
   ignoreMobileResize: true,
 });
 
-gsap.defaults({ ease: 'power3.out', duration: 1 });
+gsap.defaults({ ease: 'power2.out', duration: 1.2 });
 
 export { gsap, ScrollTrigger };
 

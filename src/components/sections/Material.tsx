@@ -105,7 +105,8 @@ export function Material() {
               src={m.asset.src}
               alt={m.asset.alt}
               loading={i === 0 ? 'eager' : 'lazy'}
-              decoding="async"
+              decoding={i === 0 ? 'sync' : 'async'}
+              fetchpriority={i === 0 ? 'high' : 'auto'}
               className="mat-inner h-full w-full object-cover will-change-transform"
             />
             <div className="absolute inset-0 bg-ink/25 md:bg-ink/10" />
@@ -123,7 +124,7 @@ export function Material() {
         </div>
 
         <div>
-          <div className="display display-lg relative mb-6 h-[1em] text-bone/25 md:mb-8">
+          <div className="display display-lg relative mb-6 h-[1em] text-bone/60 md:mb-8">
             {MATERIALS.map((m, i) => (
               <span key={m.key} className="mat-index absolute left-0 top-0" style={{ opacity: i === 0 ? 1 : 0 }}>
                 0{i + 1}
@@ -138,13 +139,13 @@ export function Material() {
                 style={{ opacity: i === 0 ? 1 : 0 }}
               >
                 <h2 className="display display-md">{m.title}</h2>
-                <p className="mt-4 max-w-[34ch] text-sm leading-relaxed text-bone/75">{m.copy}</p>
+                <p className="mt-4 max-w-[34ch] text-sm leading-loose text-bone/90">{m.copy}</p>
               </div>
             ))}
           </div>
         </div>
 
-        <ul className="hud flex gap-6 text-bone/50">
+        <ul className="hud flex gap-6 text-bone/70">
           {MATERIALS.map((m) => (
             <li key={m.key}>{m.key}</li>
           ))}

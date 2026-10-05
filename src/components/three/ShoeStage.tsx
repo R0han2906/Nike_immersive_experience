@@ -1,4 +1,5 @@
 import { memo, useEffect, useRef } from 'react';
+import * as React from 'react';
 import * as THREE from 'three';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { gsap } from '@/lib/animations/gsap';
@@ -71,8 +72,22 @@ interface Props {
 }
 
 export const ShoeStage = memo(function ShoeStage({ shoe, variant }: Props) {
+  const [isProduct, setIsProduct] = React.useState(false);
+  
+  React.useEffect(() => {
+    const checkProduct = () => {
+      setIsProduct(motion.stage === 'product');
+    };
+    const interval = setInterval(checkProduct, 100);
+    return () => clearInterval(interval);
+  }, []);
+  
   return (
-    <div className="pointer-events-none fixed inset-0 z-[1]" aria-hidden="true">
+    <div 
+      className="pointer-events-none fixed inset-0 transition-[z-index] duration-300" 
+      style={{ zIndex: isProduct ? 10 : 1 }}
+      aria-hidden="true"
+    >
       <Canvas
         frameloop="demand"
         dpr={[1, isLowPower ? 1.5 : 1.75]}

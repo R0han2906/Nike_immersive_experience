@@ -120,11 +120,11 @@ export function Hero({ modelReady, entered }: Props) {
         <span ref={frameName}>APPEAR</span>
       </div>
 
-      <div className="hero-meta hud absolute right-6 top-1/2 hidden -translate-y-1/2 [writing-mode:vertical-rl] opacity-70 md:right-10 md:block">
+      <div className="hero-meta hud absolute right-6 top-1/2 hidden -translate-y-1/2 [writing-mode:vertical-rl] opacity-80 md:right-10 md:block text-bone/80">
         Nike Motion 01 — Performance running — SS26 concept
       </div>
 
-      <h1 className="hero-title display display-hero absolute bottom-24 left-6 md:bottom-14 md:left-10">
+      <h1 className="hero-title display display-hero absolute bottom-24 left-6 text-white md:bottom-14 md:left-10">
         <span className="line-mask">
           <span className="line">Engineered</span>
         </span>
@@ -137,7 +137,7 @@ export function Hero({ modelReady, entered }: Props) {
 
       <div className="hero-beat-sole absolute bottom-24 right-6 text-right opacity-0 md:bottom-14 md:right-10">
         <p className="hud mb-3 text-ember">003 / Outsole</p>
-        <p className="display display-md">
+        <p className="display display-md text-white">
           Grip that
           <br />
           reads the ground
@@ -146,7 +146,7 @@ export function Hero({ modelReady, entered }: Props) {
 
       <div className="hero-beat-material absolute left-6 top-1/3 opacity-0 md:left-10">
         <p className="hud mb-3 text-ember">005 / Upper</p>
-        <p className="display display-md">
+        <p className="display display-md text-white">
           One piece.
           <br />
           Zero wasted motion.

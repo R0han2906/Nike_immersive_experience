@@ -82,7 +82,7 @@ html.lenis body {
   font-family: var(--font-display);
   font-weight: 400;
   text-transform: uppercase;
-  line-height: 0.84;
+  line-height: 0.88;
   letter-spacing: -0.005em;
 }
 .display-hero {
@@ -102,13 +102,14 @@ html.lenis body {
   font-size: 0.625rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  line-height: 1.4;
+  line-height: 1.7;
 }
 .hud-md {
   font-family: var(--font-mono);
   font-size: 0.75rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
+  line-height: 1.6;
 }
 .label {
   font-family: var(--font-sans);
@@ -116,6 +117,7 @@ html.lenis body {
   font-weight: 500;
   letter-spacing: 0.22em;
   text-transform: uppercase;
+  line-height: 1.6;
 }
 .text-stroke {
   -webkit-text-stroke: 1px currentColor;
@@ -130,12 +132,33 @@ html.lenis body {
 .line-mask {
   display: block;
   overflow: hidden;
-  padding-bottom: 0.06em;
-  margin-bottom: -0.06em;
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
 }
 .line-mask > .line {
   display: block;
   will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* ------------------------------------------------------------------ */
+/* GPU layer promotion for animated display elements                   */
+/* ------------------------------------------------------------------ */
+.display,
+.motion-word,
+.hero-title,
+.ath-copy,
+.final-title,
+.speed-word {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Subtle text shadow for depth on display elements */
+.display {
+  text-shadow: 0 2px 8px rgba(10, 10, 10, 0.08);
 }
 
 /* ------------------------------------------------------------------ */
@@ -211,7 +234,7 @@ html.lenis body {
   left: 0;
   will-change: transform;
   opacity: 0;
-  transition: opacity 0.45s ease;
+  transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .anatomy-label.is-on {
   opacity: 1;
@@ -230,10 +253,10 @@ html.lenis body {
   height: 1px;
   width: clamp(48px, 9vw, 140px);
   background: currentColor;
-  opacity: 0.5;
+  opacity: 0.6;
   transform-origin: left center;
   transform: scaleX(0);
-  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.1s;
+  transition: transform 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.15s;
 }
 .anatomy-label.is-on .leader {
   transform: scaleX(1);
@@ -263,39 +286,60 @@ html.lenis body {
   font-family: var(--font-mono);
   font-size: 0.75rem;
   letter-spacing: 0.08em;
+  font-weight: 600;
   width: 3rem;
   height: 2.5rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(10, 10, 10, 0.18);
+  border: 1.5px solid rgba(10, 10, 10, 0.15);
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 0.5rem;
   transition:
-    background 0.25s ease,
-    color 0.25s ease,
-    border-color 0.25s ease;
+    background 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    color 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.size-chip:hover {
+  border-color: rgba(10, 10, 10, 0.3);
+  transform: translateY(-2px);
 }
 .size-chip[aria-pressed="true"] {
   background: var(--color-ink);
   color: var(--color-bone);
   border-color: var(--color-ink);
+  transform: scale(1.05);
 }
 .swatch {
-  width: 2.25rem;
-  height: 2.25rem;
+  width: 2.5rem;
+  height: 2.5rem;
   border-radius: 9999px;
-  border: 1px solid rgba(10, 10, 10, 0.15);
-  padding: 3px;
-  background: transparent;
-  transition: border-color 0.25s ease;
+  border: 2px solid rgba(10, 10, 10, 0.15);
+  padding: 4px;
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 2px 8px rgba(10, 10, 10, 0.08);
+  transition: 
+    border-color 0.15s ease-out,
+    transform 0.2s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.swatch:hover {
+  transform: scale(1.12);
+  box-shadow: 0 4px 12px rgba(10, 10, 10, 0.12);
 }
 .swatch[aria-pressed="true"] {
-  border-color: var(--color-ink);
+  border-color: var(--color-ember);
+  border-width: 2.5px;
+  transform: scale(1.1);
+  box-shadow: 0 0 0 3px rgba(255, 77, 28, 0.15);
 }
 .swatch i {
   display: block;
   width: 100%;
   height: 100%;
   border-radius: 9999px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 @media (prefers-reduced-motion: reduce) {

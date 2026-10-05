@@ -68,9 +68,9 @@ export function Preloader({ ready, onEnter, onExited }: Props) {
         <header className="pre-fade hud flex items-start justify-between">
           <span>
             <span className="display text-2xl leading-none tracking-wide">NIKE</span>
-            <span className="ml-4 align-top text-bone/60">The shoe in motion</span>
+            <span className="ml-4 align-top text-bone/75">The shoe in motion</span>
           </span>
-          <span className="text-right text-bone/60">
+          <span className="text-right text-bone/70">
             SS26 · Concept
             <br />
             Not affiliated with Nike, Inc.
@@ -106,7 +106,7 @@ export function Preloader({ ready, onEnter, onExited }: Props) {
                       done || active ? 'opacity-100' : 'opacity-30',
                     )}
                   >
-                    <span className="text-bone/60">{n}</span>
+                    <span className="text-bone/70">{n}</span>
                     <span className="w-28">{name}</span>
                     <span className={cn('text-ember', active && 'animate-pulse')}>
                       {done ? '●' : active ? '○' : ''}
@@ -115,7 +115,7 @@ export function Preloader({ ready, onEnter, onExited }: Props) {
                 );
               })}
             </ul>
-            <p className="hud mt-6 text-bone/50">
+            <p className="hud mt-6 text-bone/65">
               {state.status}
               {!state.done && state.step === 3 && (
                 <>

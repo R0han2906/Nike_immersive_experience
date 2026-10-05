@@ -116,18 +116,19 @@ export function Speed() {
                 <img
                   src={STRIP[i].src}
                   alt={STRIP[i].alt}
-                  loading="lazy"
-                  decoding="async"
+                  loading={i === 0 ? 'eager' : 'lazy'}
+                  decoding={i === 0 ? 'sync' : 'async'}
+                  fetchpriority={i === 0 ? 'high' : 'auto'}
                   className="speed-img -ml-[10%] h-full w-[120%] max-w-none object-cover grayscale"
                 />
-                <figcaption className="hud absolute bottom-4 left-4 text-bone/80">
+                <figcaption className="hud absolute bottom-4 left-4 text-ink/70">
                   0{i + 1} — {STRIP[i].credit}
                 </figcaption>
               </figure>
             )}
           </div>
         ))}
-        <p className="hud w-[26vw] shrink-0 text-ink/60">
+        <p className="hud w-[26vw] shrink-0 text-ink/80 leading-loose">
           Velocity-reactive type — scroll faster and the letters lean and smear.
         </p>
       </div>

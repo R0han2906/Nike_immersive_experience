@@ -128,7 +128,7 @@ export function Motion() {
         {CAPTIONS.map(([k, t], i) => (
           <p
             key={k}
-            className="motion-cap absolute bottom-0 left-0 text-sm leading-relaxed text-bone/80 opacity-0"
+            className="motion-cap absolute bottom-0 left-0 text-sm leading-loose text-bone/90 opacity-0"
           >
             <span className="hud mb-2 block text-ember">
               0{i + 1} / {k}

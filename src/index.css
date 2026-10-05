@@ -1,0 +1,305 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #0a0a0a;
+  --color-graphite: #161616;
+  --color-smoke: #8a8a86;
+  --color-bone: #f2f0eb;
+  --color-ember: #ff4d1c;
+
+  --font-display: "Anton", Impact, "Arial Narrow Bold", sans-serif;
+  --font-sans: "Archivo", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+/* ------------------------------------------------------------------ */
+/* Base                                                                */
+/* ------------------------------------------------------------------ */
+html {
+  background: var(--color-ink);
+  color: var(--color-bone);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  scrollbar-width: none;
+}
+html::-webkit-scrollbar {
+  display: none;
+}
+body {
+  font-family: var(--font-sans);
+  margin: 0;
+  min-height: 100vh;
+}
+html.is-locked {
+  overflow: hidden;
+}
+
+/* Lenis */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+::selection {
+  background: var(--color-bone);
+  color: var(--color-ink);
+}
+
+/* Custom cursor: hide the native one only on fine pointers once ours is mounted */
+@media (pointer: fine) {
+  html.has-cursor,
+  html.has-cursor * {
+    cursor: none !important;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Layout helpers                                                      */
+/* ------------------------------------------------------------------ */
+.vh-full {
+  height: 100vh;
+  height: 100svh;
+}
+.min-vh-full {
+  min-height: 100vh;
+  min-height: 100svh;
+}
+
+/* ------------------------------------------------------------------ */
+/* Typography system                                                   */
+/* ------------------------------------------------------------------ */
+.display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  text-transform: uppercase;
+  line-height: 0.84;
+  letter-spacing: -0.005em;
+}
+.display-hero {
+  font-size: clamp(4.5rem, 15.5vw, 19rem);
+}
+.display-xl {
+  font-size: clamp(3.5rem, 11vw, 13rem);
+}
+.display-lg {
+  font-size: clamp(2.75rem, 7.5vw, 8.5rem);
+}
+.display-md {
+  font-size: clamp(2rem, 4.5vw, 5rem);
+}
+.hud {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+.hud-md {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.label {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+.text-stroke {
+  -webkit-text-stroke: 1px currentColor;
+  -webkit-text-fill-color: transparent;
+}
+.text-stroke-thin {
+  -webkit-text-stroke: 0.6px currentColor;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Line masks for staggered type reveals */
+.line-mask {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.06em;
+  margin-bottom: -0.06em;
+}
+.line-mask > .line {
+  display: block;
+  will-change: transform;
+}
+
+/* ------------------------------------------------------------------ */
+/* Film grain – static tile, no animation (cheap)                      */
+/* ------------------------------------------------------------------ */
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  pointer-events: none;
+  opacity: 0.055;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ------------------------------------------------------------------ */
+/* Cursor                                                              */
+/* ------------------------------------------------------------------ */
+.cursor-dot,
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 100;
+  mix-blend-mode: difference;
+  border-radius: 9999px;
+  opacity: 0;
+}
+.cursor-dot {
+  width: 6px;
+  height: 6px;
+  margin: -3px 0 0 -3px;
+  background: #fff;
+}
+.cursor-ring {
+  width: 44px;
+  height: 44px;
+  margin: -22px 0 0 -22px;
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  color: #000;
+  text-transform: uppercase;
+}
+.cursor-ring span {
+  opacity: 0;
+  transform: scale(0.6);
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+.cursor-ring.is-label span {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ------------------------------------------------------------------ */
+/* Component bits                                                      */
+/* ------------------------------------------------------------------ */
+.hairline {
+  height: 1px;
+  background: currentColor;
+  opacity: 0.25;
+}
+.anatomy-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  will-change: transform;
+  opacity: 0;
+  transition: opacity 0.45s ease;
+}
+.anatomy-label.is-on {
+  opacity: 1;
+}
+.anatomy-label .dot {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  margin: -4px 0 0 -4px;
+  border-radius: 9999px;
+  background: var(--color-ember);
+}
+.anatomy-label .leader {
+  position: absolute;
+  top: 0;
+  height: 1px;
+  width: clamp(48px, 9vw, 140px);
+  background: currentColor;
+  opacity: 0.5;
+  transform-origin: left center;
+  transform: scaleX(0);
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.1s;
+}
+.anatomy-label.is-on .leader {
+  transform: scaleX(1);
+}
+.anatomy-label .tag {
+  position: absolute;
+  top: 0;
+  transform: translateY(-50%);
+  white-space: nowrap;
+}
+.anatomy-label.side-right .leader {
+  left: 0;
+}
+.anatomy-label.side-right .tag {
+  left: calc(clamp(48px, 9vw, 140px) + 12px);
+}
+.anatomy-label.side-left .leader {
+  right: 0;
+  transform-origin: right center;
+}
+.anatomy-label.side-left .tag {
+  right: calc(clamp(48px, 9vw, 140px) + 12px);
+  text-align: right;
+}
+
+.size-chip {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  width: 3rem;
+  height: 2.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(10, 10, 10, 0.18);
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease;
+}
+.size-chip[aria-pressed="true"] {
+  background: var(--color-ink);
+  color: var(--color-bone);
+  border-color: var(--color-ink);
+}
+.swatch {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(10, 10, 10, 0.15);
+  padding: 3px;
+  background: transparent;
+  transition: border-color 0.25s ease;
+}
+.swatch[aria-pressed="true"] {
+  border-color: var(--color-ink);
+}
+.swatch i {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 9999px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .grain {
+    display: none;
+  }
+}

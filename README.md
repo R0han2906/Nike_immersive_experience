@@ -157,9 +157,8 @@ MIT License — see [LICENSE](LICENSE) for details.
 
 ## 🔗 Links
 
-- **Live Demo**: [Coming Soon]
-- **Portfolio**: [Your Portfolio]
-- **GitHub**: [@R0han2906](https://github.com/R0han2906)
+- **GitHub**: [Nike_immersive_experience](https://github.com/R0han2906/Nike_immersive_experience)
+- **Author**: [@R0han2906](https://github.com/R0han2906)
 
 ---
 

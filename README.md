@@ -151,9 +151,6 @@ onUpdate: (self) => {
 
 This is an **independent concept project** inspired by Nike. Not affiliated with, endorsed by, or produced for Nike, Inc. All product names, specifications, and prices are fictional. Created for educational and portfolio purposes.
 
-## 📜 License
-
-MIT License — see [LICENSE](LICENSE) for details.
 
 ## 🔗 Links
 

@@ -58,8 +58,8 @@ npm install
 # Start development server
 npm run dev
 ```
-
-Open [http://localhost:5173](http://localhost:5173) in your browser.
+Live link:
+Open (https://nike-sneaker-showcase.netlify.app/) in your browser.
 
 ## 🛠️ Build
 
